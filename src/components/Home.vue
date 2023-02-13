@@ -1,30 +1,28 @@
 <template>
-  <div class="body">
-    <div class="count">
-      <p>{{ storeCounter.count }}</p>
+  
+    <div class="body">
+      <div class="count">
+        <p>{{ storeCounter.count }}</p>
+      </div>
+      <div class="buttons">
+        <button @click="storeCounter.increment" id="increment">+</button>
+        <button @click="storeCounter.decrement" id="decrement">-</button>
+      </div>
+      <hr />
+      <div class="statement">This count is {{ storeCounter.evenOrOdd }}.</div>
+      <hr />
+      <div class="editor">
+        <h3>Edit count:</h3>
+        <input v-model="storeCounter.count" type="number" />
+      </div>
     </div>
-    <div class="buttons">
-      <button @click="storeCounter.increment" id="increment">+</button>
-      <button @click="storeCounter.decrement" id="decrement">-</button>
-    </div>
-    <hr>
-    <div class="statement">
-      This count is {{ storeCounter.evenOrOdd }}.
-    </div>
-    <hr>
-    <div class="editor">
-      <h3>Edit count:</h3>
-      <input v-model="storeCounter.count" type="number" />
-    </div>
-  </div>
+  
 </template>
 
 <script setup>
-
-import { useCounterStore} from '@/stores/counter';
+import { useCounterStore } from "@/stores/counter";
 
 const storeCounter = useCounterStore();
-
 </script>
 
 <style>
