@@ -1,5 +1,5 @@
 <template>
-  <base-card>
+  
     <div class="body">
       <div class="count">
         <p>{{ storeCounter.count }}</p>
@@ -16,7 +16,7 @@
         <input v-model="storeCounter.count" type="number" />
       </div>
     </div>
-  </base-card>
+  
 </template>
 
 <script setup>

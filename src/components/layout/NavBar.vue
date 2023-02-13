@@ -1,21 +1,19 @@
 <template>
     <div class="side-nav">
       <button class="nav-header" @click="toggleNavBody">
-        <h3>Personal Info</h3>
+        <h3>Kişisel Bilgi</h3>
         <i :class="['fa', isNavBodyOpen ? 'fa-caret-down' : 'fa-caret-right']"></i>
       </button>
       <div class="nav-body" :class="{ active: isNavBodyOpen }">
-        <!-- <a class="nav-button" href="#">Personal Info</a>
-        <a class="nav-button" href="#">Change Password</a>
-        <a class="nav-button" href="#">Clubs</a> -->
-        <RouterLink class="nav-button" to="/">Home</RouterLink>
-        <RouterLink class="nav-button" to="/about">About</RouterLink>
         <RouterLink class="nav-button" to="/personal">Kişisel Bilgiler</RouterLink>
+        <RouterLink class="nav-button" to="/password">Şifre Değiştirme</RouterLink>
+        <RouterLink class="nav-button" to="/clubs">Kulüp Üyelikleri</RouterLink>
       </div>
     </div>  
   </template>
   
   <script>
+  
   export default {
     data() {
       return {
