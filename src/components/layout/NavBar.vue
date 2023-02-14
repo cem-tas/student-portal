@@ -22,7 +22,7 @@
       ></i>
     </button>
     <div class="nav-body" :class="{ active: isNavBodyOpen2 }">
-      <RouterLink class="nav-button" to="/personal">Alınan Dersler</RouterLink>
+      <RouterLink class="nav-button" to="/courses">Alınan Dersler</RouterLink>
       <RouterLink class="nav-button" to="/password"
         >Not Döküm Belgesi</RouterLink
       >
