@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="table-container" style="overflow-y: auto; height: 100vh">
+    <div class="table-container" style="overflow-y: auto; height: 80vh">
       <table>
         <tr>
           <th>Club ID</th>
