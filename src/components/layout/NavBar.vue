@@ -30,7 +30,7 @@
       <RouterLink class="nav-button" to="/password"
         >Bütünleme Sınavı Zaman Çizelgesi</RouterLink
       >
-      <RouterLink class="nav-button" to="/clubs">Ders Programı</RouterLink>
+      <RouterLink class="nav-button" to="/timetable">Ders Programı</RouterLink>
     </div>
     <button class="nav-header" @click="toggleNavBody3">
       <h3>Finansal</h3>
