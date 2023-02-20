@@ -5,7 +5,7 @@ export const useStudentStore = defineStore({
   state: () => ({
     student: {
       id: 1,
-      passportId: 1234567,
+      passportId: 12345678,
       studentNumber: 1,
       name: "John",
       surname: "Doe",
