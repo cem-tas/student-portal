@@ -8,7 +8,7 @@
         <button class="header-user-btn">
           {{ userName }}
         </button>
-        <button class="header-logout-btn" @click="logout">Logout</button>
+        <button class="header-logout-btn" @click="report">Logout</button>
       </div>
     </div>
   </header>
@@ -21,8 +21,8 @@ const store = useUserStore();
 
 const userName = "John Doe";
 
-function logout() {
-  console.log("Logged out!");
+function report() {
+  console.log(store.user);
 }
 </script>
 
