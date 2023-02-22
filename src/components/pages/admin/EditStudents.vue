@@ -1,79 +1,44 @@
 <template>
-  <table class="zebra-table">
-    <thead>
-      <tr>
-        <th @click="sortBy('number')">Student Number</th>
-        <th @click="sortBy('name')">Name</th>
-        <th @click="sortBy('faculty')">Faculty</th>
-        <th @click="sortBy('department')">Department</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="(student, index) in sortedStudents"
-        :key="index"
-        :class="index % 2 === 0 ? 'even' : 'odd'"
-      >
-        <td>{{ student.number }}</td>
-        <td>{{ student.name }}</td>
-        <td>{{ student.faculty }}</td>
-        <td>{{ student.department }}</td>
-        <td><button @click="editStudent(student)">Edit</button></td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="zebra-table">
+      <thead>
+        <tr>
+          <th @click="store.sortBy('number')">Student Number</th>
+          <th @click="store.sortBy('name')">Name</th>
+          <th @click="store.sortBy('faculty')">Faculty</th>
+          <th @click="store.sortBy('department')">Department</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="(student, index) in store.sortedStudents"
+          :key="index"
+          :class="index % 2 === 0 ? 'even' : 'odd'"
+        >
+          <td>{{ student.studentNumber }}</td>
+          <td>{{ student.name + " " + student.surname }}</td>
+          <td>{{ student.faculty }}</td>
+          <td>{{ student.department }}</td>
+          <td><button @click="store.loadStudents">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      students: [
-        {
-          number: 1,
-          name: "John",
-          faculty: "Engineering",
-          department: "Computer Science",
-        },
-        { number: 2, name: "Mary", faculty: "Science", department: "Biology" },
-        { number: 3, name: "Bob", faculty: "Arts", department: "English" },
-        {
-          number: 4,
-          name: "Alice",
-          faculty: "Business",
-          department: "Marketing",
-        },
-      ],
-      sortKey: "number", // default sort key
-      reverse: false, // default sort order
-    };
-  },
-  methods: {
-    sortBy(key) {
-      if (this.sortKey === key) {
-        this.reverse = !this.reverse;
-      } else {
-        this.sortKey = key;
-        this.reverse = false;
-      }
-    },
-    editStudent(student) {
-      // implement your edit functionality here
-    },
-  },
-  computed: {
-    sortedStudents() {
-      const key = this.sortKey;
-      const reverse = this.reverse ? -1 : 1;
-      return this.students.sort((a, b) => {
-        const x = (a[key] || "").toString().toLowerCase();
-        const y = (b[key] || "").toString().toLowerCase();
-        return reverse * ((x > y) - (y > x));
-      });
-    },
-  },
-};
+<script setup>
+import { useAdminStudentsStore } from "@/stores/adminstudents.js";
+import { onBeforeMount } from "vue";
+
+const store = useAdminStudentsStore();
+
+// function editStudent(std) {
+//     this should contain edit student logic.
+// }
+onBeforeMount(() => {
+  store.loadStudents();
+});
 </script>
 
 <style scoped>
@@ -85,7 +50,7 @@ export default {
 .zebra-table th,
 .zebra-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 1px;
   text-align: left;
 }
 

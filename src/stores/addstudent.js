@@ -25,13 +25,12 @@ export const useAddStudentStore = defineStore({
     password: "",
     courses: "",
     debt: null,
-    id: crypto.randomUUID(),
   }),
 
   actions: {
     async addStudent() {
       const newStudent = {
-        // id: this.id,
+        id: crypto.randomUUID(),
         passportId: this.passportId,
         studentNumber: this.studentNumber,
         name: this.name,
@@ -55,7 +54,7 @@ export const useAddStudentStore = defineStore({
         debt: this.debt,
       };
       const response = await fetch(
-        `https://std-portal-76539-default-rtdb.europe-west1.firebasedatabase.app/students/${this.id}.json`,
+        `https://std-portal-76539-default-rtdb.europe-west1.firebasedatabase.app/students.json`,
         {
           method: "POST",
           body: JSON.stringify(newStudent),
@@ -70,10 +69,7 @@ export const useAddStudentStore = defineStore({
         );
         throw error;
       }
-
-      newStudent.id = responseData.name;
     },
-    
   },
 
   getters: {
