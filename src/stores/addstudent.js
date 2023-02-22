@@ -25,12 +25,13 @@ export const useAddStudentStore = defineStore({
     password: "",
     courses: "",
     debt: null,
-    id: new Date().toISOString()
+    id: crypto.randomUUID(),
   }),
 
   actions: {
     async addStudent() {
       const newStudent = {
+        // id: this.id,
         passportId: this.passportId,
         studentNumber: this.studentNumber,
         name: this.name,
@@ -71,8 +72,8 @@ export const useAddStudentStore = defineStore({
       }
 
       newStudent.id = responseData.name;
-      console.log(this.id);
     },
+    
   },
 
   getters: {

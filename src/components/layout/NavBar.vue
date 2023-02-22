@@ -96,7 +96,7 @@
         <RouterLink class="nav-button" to="/add-student"
           >Öğrenci Ekle</RouterLink
         >
-        <RouterLink class="nav-button" to="/password"
+        <RouterLink class="nav-button" to="/edit-students"
           >Öğrenci Düzenle</RouterLink
         >
       </div>
