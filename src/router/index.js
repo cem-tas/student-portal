@@ -3,6 +3,10 @@ import Home from "../components/Home.vue";
 import PersonalInfo from "@/components/pages/personal-info/PersonalInfo.vue";
 import ChangePassword from "@/components/pages/personal-info/ChangePassword.vue";
 import ClubMemberships from "@/components/pages/personal-info/ClubMemberships.vue";
+import Courses from "@/components/pages/academic/Courses.vue";
+import TimeTable from "@/components/pages/academic/TimeTable.vue";
+import AddStudent from "@/components/pages/admin/AddStudent.vue";
+import EditStudents from "@/components/pages/admin/EditStudents.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +30,26 @@ const router = createRouter({
       path: "/clubs",
       name: "clubs",
       component: ClubMemberships,
+    },
+    {
+      path: "/courses",
+      name: "courses",
+      component: Courses,
+    },
+    {
+      path: "/timetable",
+      name: "timetable",
+      component: TimeTable,
+    },
+    {
+      path: "/add-student",
+      name: "add-student",
+      component: AddStudent,
+    },
+    {
+      path: "/edit-students",
+      name: "edit-students",
+      component: EditStudents,
     },
   ],
 });

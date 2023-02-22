@@ -6,6 +6,7 @@ import router from "./router";
 import PersonalInfo from "@/components/pages/personal-info/PersonalInfo.vue";
 import ChangePassword from "@/components/pages/personal-info/ChangePassword.vue";
 import ClubMemberships from "@/components/pages/personal-info/ClubMemberships.vue";
+import Courses from "@/components/pages/academic/Courses.vue";
 
 import "./assets/main.css";
 
@@ -17,4 +18,5 @@ app.use(router);
 app.component("personal-info", PersonalInfo);
 app.component("change-password", ChangePassword);
 app.component("club-memberships", ClubMemberships)
+app.component("courses", Courses)
 app.mount("#app");
